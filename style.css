@@ -1,0 +1,338 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Staatliches&display=swap");
+@import url("https://use.fontawesome.com/releases/v5.14.0/css/all.css");
+
+@font-face {
+  font-family: Euro2021-1;
+  src: url("https://www.uefa.com/Content/fonts/pf-beau-sans-v2/PFBeauSansPro-Bold.woff2");
+  font-weight: bold;
+}
+@font-face {
+  font-family: Euro2021-1;
+  src: url("https://www.uefa.com/Content/fonts/pf-beau-sans-v2/PFBeauSansPro-Regular.woff2");
+  font-weight: normal;
+}
+@font-face {
+  font-family: Euro2021-2;
+  src: url("https://www.uefa.com/Content/fonts/bridge/bridgetype-regular.woff2");
+  font-weight: normal;
+}
+
+:root {
+  --fontRegular: Euro2021-1, Helvetica, Arial, sans-serif, cursive;
+  --fontSpecial: Euro2021-2, Helvetica, Arial, sans-serif, cursive;
+}
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 1.5em;
+  font-family: var(--fontRegular);
+  background-color: #f5f3f1;
+  text-align: center;
+  background-image: url("https://www.techadvisor.com/cmsdata/features/3701958/how_to_watch_euro_2021_thumb800.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  font-size: 18px;
+}
+header {
+  margin-bottom: 2em;
+}
+
+h1,
+h2 {
+  font-family: var(--fontSpecial);
+  color: white;
+  text-shadow: 0 0 0.5em black;
+  font-weight: 500;
+}
+h1 {
+  font-size: 4em;
+}
+h2 {
+  font-size: 2.5em;
+}
+#all-groups-tables {
+  max-width: 900px;
+  min-width: 350px;
+  margin: 0 auto;
+}
+
+.group-wrapper {
+  margin-bottom: 2em;
+}
+table.group-table,
+table.group-table thead,
+table.group-table tbody {
+  display: flex;
+  flex-direction: column;
+}
+
+table.group-table {
+  width: 100%;
+  background-image: linear-gradient(to bottom right, #ffffffdd, #63b7f8dd);
+  padding: 1em 2em;
+  border-radius: 0.5em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+table.group-table tr {
+  display: flex;
+  position: relative;
+}
+
+table.group-table th,
+table.group-table td {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 0.4em 0em;
+  z-index: 2;
+}
+
+table.group-table th:first-child,
+table.group-table td:first-child {
+  min-width: 200px;
+  justify-content: left;
+}
+
+table.group-table .col-groupname {
+  font-size: 1.5em;
+}
+
+table.group-table .col-name-short {
+  display: none;
+}
+table.group-table .col-team {
+  display: flex;
+  gap: 0.5em;
+  position: relative;
+  font-weight: bold;
+}
+table.group-table .col-team img {
+  width: 25px;
+}
+
+table.group-table .col-team .qualified {
+  position: relative;
+}
+
+table.group-table .row-team {
+  position: relative;
+}
+table.group-table .row-team.live:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: calc(100% + 0.4em);
+  height: calc(100% - 0.4em);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid green;
+  border-radius: 100px;
+  background-color: rgba(0, 128, 0, 0.5);
+}
+table.group-table .row-team.live:after {
+  content: "\f04b";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-1.5em, -50%);
+  color: green;
+  font-size: 0.8em;
+  animation: blink 2s infinite;
+}
+
+table.group-table .col-team .qualified:after {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: green;
+  margin-left: 0.5em;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+table.group-table thead {
+  border-bottom: 2px ridge #fff;
+  font-size: 0.9em;
+}
+table.group-table .col-played,
+table.group-table .col-lost,
+table.group-table .col-goalDifference {
+  border-right: 2px ridge #fff;
+}
+
+/* MATCHES */
+table.group-matches-table {
+  width: 90%;
+  margin: 0 auto;
+  background-image: linear-gradient(to bottom right, #ffffffdd, #63b7f8dd);
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  border-radius: 0 0 0.5em 0.5em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+table.group-matches-table tr {
+  display: flex;
+}
+table.group-matches-table td {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  white-space: nowrap;
+}
+table.group-matches-table .group-match-home,
+table.group-matches-table .group-match-away {
+  flex: 2;
+  font-weight: bold;
+}
+table.group-matches-table .group-match-home-name span:nth-child(2),
+table.group-matches-table .group-match-away-name span:nth-child(2) {
+  display: none;
+}
+table.group-matches-table .group-match-home {
+  justify-content: flex-end;
+}
+table.group-matches-table .group-match-home-img,
+table.group-matches-table .group-match-away-img {
+  width: 25px;
+}
+table.group-matches-table .group-match-home-img {
+  margin-left: 0.5em;
+}
+table.group-matches-table .group-match-away-img {
+  margin-right: 0.5em;
+}
+table.group-matches-table .group-match-result,
+table.group-matches-table .group-match-time {
+  justify-content: center;
+  flex: 0.6;
+}
+
+table.group-matches-table .group-match-result {
+  font-weight: bold;
+}
+table.group-matches-table .group-match-result.live {
+  position: relative;
+  z-index: 1;
+}
+table.group-matches-table .group-match-result.live:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: calc(100% - 1em);
+  height: calc(100%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid green;
+  border-radius: 100px;
+  background-color: rgba(0, 128, 0, 0.5);
+  z-index: -1;
+}
+table.group-matches-table .group-match-location {
+  justify-content: flex-end;
+}
+table.group-matches-table .group-match-date,
+table.group-matches-table .group-match-location,
+table.group-matches-table .group-match-time {
+  font-size: 0.8em;
+}
+
+@media screen and (max-width: 850px) {
+  table.group-table .col-name-short {
+    display: inline;
+  }
+  table.group-table .col-name-long {
+    display: none;
+  }
+
+  table.group-matches-table .group-match-location {
+    display: none;
+  }
+}
+@media screen and (max-width: 700px) {
+  table.group-matches-table .group-match-date {
+    display: none;
+  }
+  table.group-matches-table .group-match-time {
+    opacity: 0;
+  }
+  table.group-matches-table {
+    padding: 0.5em;
+  }
+}
+@media screen and (max-width: 600px) {
+  table.group-table .col-goalsFor,
+  table.group-table .col-goalsAgainst {
+    display: none;
+  }
+  table.group-matches-table .group-match-home-name span:nth-child(2),
+  table.group-matches-table .group-match-away-name span:nth-child(2) {
+    display: inline;
+  }
+  table.group-matches-table .group-match-home-name span:nth-child(1),
+  table.group-matches-table .group-match-away-name span:nth-child(1) {
+    display: none;
+  }
+
+  table.group-matches-table .group-match-home,
+  table.group-matches-table .group-match-away {
+    flex: 1;
+  }
+
+  table.group-matches-table .group-match-time,
+  table.group-matches-table .group-match-result {
+    flex: 0.5;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  table.group-table .col-won,
+  table.group-table .col-drawn,
+  table.group-table .col-lost {
+    display: none;
+  }
+  body {
+    font-size: 16px;
+    padding: 0.5em;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  table.group-table th:first-child,
+  table.group-table td:first-child {
+    min-width: 180px;
+    justify-content: left;
+  }
+  #all-groups-table.group-tables {
+    min-width: 350px;
+  }
+  table.group-matches-table .group-match-time,
+  table.group-matches-table .group-match-result {
+    flex: 1;
+  }
+}
